@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Lab {
     /**
@@ -15,6 +16,23 @@ public class Lab {
      * @return true if there is a successful login, and false otherwise.
      */
     public boolean login(String username, String password){
-        return false;
+        String[] users = { "admin", "user" };
+        String[] passwords = { "qwerty", "password" };
+
+        int SENTINEL = -1;
+        int index = SENTINEL;
+
+        for (int i = 0; i < users.length; i++) {
+            if (users[i].equals(username)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index > SENTINEL) {
+            return passwords[index].equals(password);
+        } else {
+            return false;
+        }
     }
 }
